@@ -5,11 +5,24 @@
       {{ title }}
     </div>
     <div class="body f-flex1">
-      <div class="book f-flex2" v-for="(book,index) in ranDomBooks" @click="watchP(book.comic_id)" :key="index">
-        <img v-lazy="'http://image.yqmh.com/mh/'+book.comic_id+'.jpg-600x800.jpg.webp'" alt="">
+      <div
+        class="book f-flex2"
+        v-for="(book, index) in ranDomBooks"
+        @click="watchP(book.comic_id)"
+        :key="index"
+      >
+        <img
+          v-lazy="
+            'http://image.yqmh.com/mh/' +
+            book.comic_id +
+            '.jpg-600x800.jpg.webp'
+          "
+          alt=""
+        />
         <!--        http://image.yqmh.com/mh/107781.jpg-600x800.jpg.webp-->
         <span class="f-thide">{{ book.comic_name }}</span>
       </div>
+      <div v-for="i in len" :key="i" class="book"></div>
     </div>
   </div>
 </template>
@@ -19,30 +32,38 @@ export default {
   name: "One",
   data() {
     return {
-      ranDomBooks: []
-    }
+      ranDomBooks: [],
+    };
   },
-  props: ['title', 'books'],
+  props: ["title", "books"],
   created() {
     if (this.books.length <= 6) {
-      this.ranDomBooks = this.books
+      this.ranDomBooks = this.books;
     } else {
       while (this.ranDomBooks.length < 6) {
-        let ran = parseInt(Math.random() * this.books.length)
-        this.ranDomBooks.push(this.books[ran])
-        this.ranDomBooks = [...new Set(this.ranDomBooks.map(cur => cur['comic_id']))].map(cur => this.ranDomBooks.find(cu => (cu['comic_id']) === cur))
+        let ran = parseInt(Math.random() * this.books.length);
+        this.ranDomBooks.push(this.books[ran]);
+        this.ranDomBooks = [
+          ...new Set(this.ranDomBooks.map((cur) => cur["comic_id"])),
+        ].map((cur) => this.ranDomBooks.find((cu) => cu["comic_id"] === cur));
       }
     }
   },
   computed: {
-    // len() {
-    //   if (this.books.length % 3 !== 0) {
-    //     return 3 - this.books.length % 3
-    //   }
-    // }
+    len() {
+      if (this.books.length < 6) {
+        if (this.books.length % 3 !== 0) {
+          return 3 - (this.books.length % 3);
+        } else {
+          return 0;
+        }
+      } else {
+        return 0;
+      }
+    },
   },
-  inject:['watchP']
-}
+  inject: ["watchP"],
+};
 </script>
 
 <style lang="less" scoped>
@@ -67,7 +88,6 @@ export default {
   .body {
     width: 100%;
     flex-wrap: wrap;
-
 
     .book {
       width: 30%;

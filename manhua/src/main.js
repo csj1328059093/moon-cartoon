@@ -3,11 +3,11 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from "vue-axios";
-import {Loadmore} from 'mint-ui';
+import { Loadmore } from 'mint-ui';
 import animate from 'animate.css'
 //vant
 import Vant from 'vant';
-import {Lazyload} from "vant";
+import { Lazyload } from "vant";
 import 'vant/lib/index.css';
 
 
@@ -28,3 +28,5 @@ new Vue({
     store,
     render: h => h(App)
 }).$mount('#app')
+
+
