@@ -31,7 +31,7 @@ export default {
         if (this.$refs.tabs) {
           this.$refs.tabs.resize()
         }
-      }, 0)
+      }, 200)
     }).catch(err => {
       console.log(err)
     })

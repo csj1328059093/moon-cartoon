@@ -1,6 +1,6 @@
 module.exports = {
     devServer: {
-            disableHostCheck: true
-    }
+        disableHostCheck: true
+    },
+    publicPath: ''
 }
-// VUE_APP_BASE_API = '/api'

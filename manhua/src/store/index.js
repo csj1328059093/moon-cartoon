@@ -8,6 +8,7 @@ export default new Vuex.Store({
     state: {
         collectBooks: storageUtil.read('collectBooks'),
         historyBooks: storageUtil.read('historyBooks'),
+        localUser: storageUtil.read('localUser')
     },
     mutations: {
         addCollectBook(state, payload) {
@@ -24,7 +25,16 @@ export default new Vuex.Store({
         },
         popHistoryBook(state) {
             state.historyBooks.pop()
-        }
+        },
+        addUser(state, payload) {
+            state.localUser = payload
+        },
+        changeCollectBook(state, payload) {
+            state.collectBooks = payload
+        },
+        changeHistoryBook(state, payload) {
+            state.historyBooks = payload
+        },
     },
     actions: {},
     modules: {}
