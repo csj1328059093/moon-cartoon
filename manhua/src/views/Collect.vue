@@ -12,6 +12,10 @@
             class="book f-flex2"
             v-for="(book, index) in collectBooks"
             @click="watchP(book.comic_id)"
+<<<<<<< HEAD
+=======
+            :key="index"
+>>>>>>> 5592bc2a28f5d9ef586b9ed5fad6d1f079bf4383
           >
             <img
               v-lazy="
@@ -23,7 +27,7 @@
             />
             <span class="f-thide">{{ book.comic_name }}</span>
           </div>
-          <div class="book" v-for="i in addDiv"></div>
+          <div class="book" v-for="i in addDiv" :key="i"></div>
         </div>
         <div class="sorry f-flex2" v-show="Array.isArray(localUser)">
           <img src="../assets/img/unsearch.png" alt="" />
@@ -50,6 +54,10 @@
             class="book2 f-flex1"
             v-for="(book, index) in historyBooks"
             @click="watchP(book.comic_id)"
+<<<<<<< HEAD
+=======
+            :key="index"
+>>>>>>> 5592bc2a28f5d9ef586b9ed5fad6d1f079bf4383
           >
             <img
               v-lazy="

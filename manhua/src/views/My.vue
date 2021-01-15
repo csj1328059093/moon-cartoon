@@ -336,6 +336,10 @@ export default {
             console.log(result.data);
             if (result.data.msg === "注册成功") {
               this.$store.commit("addUser", result.data[0]);
+<<<<<<< HEAD
+=======
+              this.localUser = result.data[0];
+>>>>>>> 5592bc2a28f5d9ef586b9ed5fad6d1f079bf4383
               this.loginShow = false;
             }
             Toast(result.data.msg);
